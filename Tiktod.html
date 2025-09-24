@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Up Koin TikTok</title>
+    <style>
+        /* Gaya CSS untuk mempercantik tampilan */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            height: 40px;
+            margin-right: 15px;
+        }
+        h1 {
+            color: #000;
+            font-size: 24px;
+            margin: 0;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .coin-options, .payment-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .coin-button, .payment-button {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .coin-button:hover, .payment-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .coin-button.selected, .payment-button.selected {
+            border-color: #fe2c55;
+            background-color: #fef0f4;
+        }
+        .coin-button h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #fe2c55;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .coin-button h3 img {
+            height: 20px;
+            margin-right: 5px;
+        }
+        .coin-button p {
+            margin: 5px 0 0;
+            color: #888;
+        }
+        .payment-button img {
+            height: 30px;
+        }
+        button.topup-btn {
+            background-color: #fe2c55;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        button.topup-btn:hover {
+            background-color: #d11a43;
+        }
+        .message {
+            margin-top: 20px;
+            color: green;
+            font-weight: bold;
+            display: none; /* Sembunyikan pesan awal */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <img src="tiktok-logo.png" alt="TikTok Logo">
+        <h1>Top Up Koin TikTok</h1>
+    </div>
+    
+    <div class="input-group">
+        <label for="username">Username TikTok:</label>
+        <input type="text" id="username" placeholder="Masukkan username Anda">
+    </div>
+
+    <label>Pilih Jumlah Koin:</label>
+    <div class="coin-options">
+        <div class="coin-button" onclick="selectCoin(this, 70, 'Rp 14.000')">
+            <h3><img src="coin.png" alt="Coin Icon"> 70 Koin</h3>
+            <p>Rp 14.000</p>
+        </div>
+        <div class="coin-button" onclick="selectCoin(this, 350, 'Rp 70.000')">
+            <h3><img src="coin.png" alt="Coin Icon"> 350 Koin</h3>
+            <p>Rp 70.000</p>
+        </div>
+        <div class="coin-button" onclick="selectCoin(this, 700, 'Rp 140.000')">
+            <h3><img src="coin.png" alt="Coin Icon"> 700 Koin</h3>
+            <p>Rp 140.000</p>
+        </div>
+        <div class="coin-button" onclick="selectCoin(this, 1400, 'Rp 280.000')">
+            <h3><img src="coin.png" alt="Coin Icon"> 1400 Koin</h3>
+            <p>Rp 280.000</p>
+        </div>
+        <div class="coin-button" onclick="selectCoin(this, 3500, 'Rp 700.000')">
+            <h3><img src="coin.png" alt="Coin Icon"> 3500 Koin</h3>
+            <p>Rp 700.000</p>
+        </div>
+        <div class="coin-button" onclick="selectCoin(this, 7000, 'Rp 1.400.000')">
+            <h3><img src="coin.png" alt="Coin Icon"> 7000 Koin</h3>
+            <p>Rp 1.400.000</p>
+        </div>
+        <div class="coin-button" onclick="selectCoin(this, 17500, 'Rp 3.500.000')">
+            <h3><img src="coin.png" alt="Coin Icon"> 17500 Koin</h3>
+            <p>Rp 3.500.000</p>
+        </div>
+        <div class="coin-button" onclick="selectCoin(this, 35000, 'Rp 7.000.000')">
+            <h3><img src="coin.png" alt="Coin Icon"> 35000 Koin</h3>
+            <p>Rp 7.000.000</p>
+        </div>
+    </div>
+    <input type="hidden" id="selectedCoins" value="">
+
+    ---
+    
+    <label>Pilih Metode Pembayaran:</label>
+    <div class="payment-options">
+        <div class="payment-button" onclick="selectPayment(this, 'Dana')">
+            <img src="dana.png" alt="Dana Logo">
+        </div>
+        <div class="payment-button" onclick="selectPayment(this, 'OVO')">
+            <img src="ovo.png" alt="OVO Logo">
+        </div>
+        <div class="payment-button" onclick="selectPayment(this, 'GoPay')">
+            <img src="gopay.png" alt="GoPay Logo">
+        </div>
+        <div class="payment-button" onclick="selectPayment(this, 'ShopeePay')">
+            <img src="shopee.png" alt="ShopeePay Logo">
+        </div>
+    </div>
+    <input type="hidden" id="selectedPayment" value="">
+
+    <button class="topup-btn" onclick="prosesTopUp()">Top Up Sekarang</button>
+    <p id="successMessage" class="message"></p>
+</div>
+
+<script>
+    let selectedCoinButton = null;
+    let selectedPaymentButton = null;
+
+    function selectCoin(button, coins, price) {
+        if (selectedCoinButton) {
+            selectedCoinButton.classList.remove('selected');
+        }
+        button.classList.add('selected');
+        selectedCoinButton = button;
+        document.getElementById('selectedCoins').value = `${coins} Koin (${price})`;
+    }
+
+    function selectPayment(button, paymentMethod) {
+        if (selectedPaymentButton) {
+            selectedPaymentButton.classList.remove('selected');
+        }
+        button.classList.add('selected');
+        selectedPaymentButton = button;
+        document.getElementById('selectedPayment').value = paymentMethod;
+    }
+
+    function prosesTopUp() {
+        let username = document.getElementById("username").value;
+        let coinsInfo = document.getElementById("selectedCoins").value;
+        let paymentMethod = document.getElementById("selectedPayment").value;
+        let messageElement = document.getElementById("successMessage");
+
+        if (username.trim() === "" || coinsInfo.trim() === "" || paymentMethod.trim() === "") {
+            messageElement.style.color = 'red';
+            messageElement.textContent = "Mohon lengkapi semua data.";
+            messageElement.style.display = 'block';
+            return;
+        }
+
+        // Simulasikan proses top-up yang berhasil
+        messageElement.style.color = 'green';
+        messageElement.innerHTML = `Top up ${coinsInfo} untuk username "${username}"<br>menggunakan ${paymentMethod} berhasil!`;
+        messageElement.style.display = 'block';
+
+        // Opsional: kosongkan input setelah berhasil
+        document.getElementById("username").value = "";
+        document.getElementById("selectedCoins").value = "";
+        document.getElementById("selectedPayment").value = "";
+        if (selectedCoinButton) {
+            selectedCoinButton.classList.remove('selected');
+            selectedCoinButton = null;
+        }
+        if (selectedPaymentButton) {
+            selectedPaymentButton.classList.remove('selected');
+            selectedPaymentButton = null;
+        }
+    }
+</script>
+
+</body>
+</html>
